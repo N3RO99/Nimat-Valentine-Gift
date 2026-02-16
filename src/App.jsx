@@ -12,6 +12,23 @@ export default function App() {
   const [currentReason, setCurrentReason] = useState(0);
   const [showHeartSlideshow, setShowHeartSlideshow] = useState(false);
 
+  const reasonMedia = [
+  { type: 'image', src: '/images/photo1.jpeg' },
+  { type: 'image', src: '/images/photo2.jpeg' },
+  { type: 'image', src: '/images/photo3.jpeg' },
+  { type: 'image', src: '/images/photo4.jpeg' },
+  { type: 'image', src: '/images/photo5.jpeg' },
+  { type: 'image', src: '/images/photo1.jpeg' },
+  { type: 'image', src: '/images/photo2.jpeg' },
+  { type: 'image', src: '/images/photo3.jpeg' },
+  { type: 'image', src: '/images/photo4.jpeg' },
+  { type: 'image', src: '/images/photo5.jpeg' },
+  { type: 'image', src: '/images/photo1.jpeg' },
+  { type: 'image', src: '/images/photo2.jpeg' },
+  { type: 'image', src: '/images/photo3.jpeg' },
+  { type: 'image', src: '/images/photo4.jpeg' },
+];
+
   const reasons = [
     { title: 'Sexy', emoji: '✨' },
     { title: 'Ashawo', emoji: '😎' },
@@ -254,14 +271,14 @@ export default function App() {
                     <div className="bg-gradient-to-r from-rose-100 to-pink-100 rounded-2xl p-8 animate-fade-in">
                       <div className="grid grid-cols-2 gap-4">
                         {[
-                          { type: 'image', src: '' },
-                          { type: 'image', src: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=200&h=200&fit=crop' },
-                          { type: 'image', src: 'https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=200&h=200&fit=crop' },
-                          { type: 'image', src: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=200&h=200&fit=crop' },
-                          { type: 'image', src: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=200&h=200&fit=crop' },
-                          { type: 'image', src: 'https://images.unsplash.com/photo-1507843931627-6cfc3a0e4d19?w=200&h=200&fit=crop' },
-                          { type: 'image', src: 'https://images.unsplash.com/photo-1501772735318-d8214dc8b29f?w=200&h=200&fit=crop' },
-                          { type: 'image', src: 'https://images.unsplash.com/photo-1517457373614-b7152f800bb1?w=200&h=200&fit=crop' },
+                          { type: 'image', src: '/images/photo1.jpeg' },
+                          { type: 'video', src: '/images/video1.mp4' },
+                          { type: 'image', src: '/images/photo2.jpeg' },
+                          { type: 'video', src: '/images/video2.mp4' },
+                          { type: 'image', src: '/images/photo3.jpeg' },
+                          { type: 'image', src: '/images/photo4.jpeg' },
+                          { type: 'video', src: '/images/video3.mp4' },
+                          { type: 'image', src: '/images/photo5.jpeg' },
                         ].map((media, idx) => (
                           <div
                             key={idx}
@@ -339,28 +356,13 @@ export default function App() {
 
                 {/* Sample image for each reason */}
                 <div className="mb-8 h-64 bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl flex items-center justify-center overflow-hidden">
-                  <img
-                    src={`https://images.unsplash.com/photo-${
-                      [
-                        '1494790108377-be9c29b29330',
-                        '1507003211169-0a1dd7228f2d',
-                        '1506749410340-cdc579dc70c5',
-                        '1502255917411-0ff2694c74ab',
-                        '1453614512568-c4024d13c247',
-                        '1520763185298-1b434c919eba',
-                        '1502720917128-1aa500764cbd',
-                        '1504384308090-cb894fdbb938',
-                        '1505735313671-1610ad7acac9',
-                        '1529626455594-4ff0802cfb7e',
-                        '1507842485889-d1a5c34fb298',
-                        '1474657126481-24ffe2aafc64',
-                        '1484480974769-658f7327a338',
-                        '1476514525535-07fb3b007d1d',
-                      ][currentReason]
-                    }?w=500&h=300&fit=crop`}
-                    alt="reason"
-                    className="w-full h-full object-cover"
-                  />
+                  {reasonMedia[currentReason].type === 'video' ? (
+                    <video width="500" height="300" controls style={{ width: '100%', height: '100%', objectFit: 'cover' }}>
+                      <source src={reasonMedia[currentReason].src} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img src={reasonMedia[currentReason].src} alt="reason" className="w-full h-full object-cover" />
+                  )}
                 </div>
 
                 <div className="flex items-center justify-between gap-4">
