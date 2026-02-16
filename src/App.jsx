@@ -271,14 +271,14 @@ export default function App() {
                     <div className="bg-gradient-to-r from-rose-100 to-pink-100 rounded-2xl p-8 animate-fade-in">
                       <div className="grid grid-cols-2 gap-4">
                         {[
-                          { type: 'image', src: '/images/photo1.jpeg' },
-                          { type: 'video', src: '/images/video1.mp4' },
-                          { type: 'image', src: '/images/photo2.jpeg' },
-                          { type: 'video', src: '/images/video2.mp4' },
-                          { type: 'image', src: '/images/photo3.jpeg' },
-                          { type: 'image', src: '/images/photo4.jpeg' },
-                          { type: 'video', src: '/images/video3.mp4' },
-                          { type: 'image', src: '/images/photo5.jpeg' },
+                          { type: 'image', src: '/public/images/photo1.jpeg' },
+                          { type: 'video', src: '/public/images/video1.mp4' },
+                          { type: 'image', src: '/public/images/photo2.jpeg' },
+                          { type: 'video', src: '/public/images/video2.mp4' },
+                          { type: 'image', src: '/public/images/photo3.jpeg' },
+                          { type: 'image', src: '/public/images/photo4.jpeg' },
+                          { type: 'video', src: '/public/images/video3.mp4' },
+                          { type: 'image', src: '/public/images/photo5.jpeg' },
                         ].map((media, idx) => (
                           <div
                             key={idx}
