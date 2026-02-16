@@ -106,7 +106,7 @@ export default function App() {
           </div>
 
           <p className="text-center text-gray-600 text-xs mt-6">
-            💕 Something special awaits you inside 💕
+            💕 Just so you know I'm better(From Jesse to You!!) 💕
           </p>
         </div>
       </div>
@@ -209,13 +209,13 @@ export default function App() {
                     <h3 className="text-3xl font-bold text-rose-600 mb-6">For You</h3>
                     <div className="text-gray-700 leading-relaxed space-y-4 font-light text-lg">
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                       I know we haven’t known each other for a very long time, but honestly, it feels like I’ve known you much longer. Some people just have a way of making time feel different, and you’re one of them. From the start, you’ve been so nice and easy to talk to, and that’s something I really appreciate about you.
                       </p>
                       <p>
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                       You have this calm, kind energy that makes people feel comfortable, and I can say you’ve definitely made me feel that way. I don’t open up or feel relaxed around everyone, so the fact that I can around you means a lot. Not everyone can do that, and I hope you know how special that is.
                       </p>
                       <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                        I just wanted to let you know that your kindness and the way you treat people doesn’t go unnoticed. You make things a little brighter just by being you. I’m really glad I got the chance to know you, even if it hasn’t been that long yet.
                       </p>
                     </div>
                   </div>
@@ -253,36 +253,39 @@ export default function App() {
                   {teddyMoved && (
                     <div className="bg-gradient-to-r from-rose-100 to-pink-100 rounded-2xl p-8 animate-fade-in">
                       <div className="grid grid-cols-2 gap-4">
-                        {/* To add videos, replace img tags with video tags like this:
-                            <video width="200" height="200" controls>
-                              <source src="your-video.mp4" type="video/mp4">
-                            </video>
-                        */}
                         {[
-                          'https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=200&h=200&fit=crop',
-                          'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=200&h=200&fit=crop',
-                          'https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=200&h=200&fit=crop',
-                          'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=200&h=200&fit=crop',
-                          'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=200&h=200&fit=crop',
-                          'https://images.unsplash.com/photo-1507843931627-6cfc3a0e4d19?w=200&h=200&fit=crop',
-                          'https://images.unsplash.com/photo-1501772735318-d8214dc8b29f?w=200&h=200&fit=crop',
-                          'https://images.unsplash.com/photo-1517457373614-b7152f800bb1?w=200&h=200&fit=crop',
-                        ].map((img, idx) => (
+                          { type: 'image', src: '' },
+                          { type: 'image', src: 'https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=200&h=200&fit=crop' },
+                          { type: 'image', src: 'https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=200&h=200&fit=crop' },
+                          { type: 'image', src: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=200&h=200&fit=crop' },
+                          { type: 'image', src: 'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=200&h=200&fit=crop' },
+                          { type: 'image', src: 'https://images.unsplash.com/photo-1507843931627-6cfc3a0e4d19?w=200&h=200&fit=crop' },
+                          { type: 'image', src: 'https://images.unsplash.com/photo-1501772735318-d8214dc8b29f?w=200&h=200&fit=crop' },
+                          { type: 'image', src: 'https://images.unsplash.com/photo-1517457373614-b7152f800bb1?w=200&h=200&fit=crop' },
+                        ].map((media, idx) => (
                           <div
                             key={idx}
                             className="h-40 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
                           >
-                            <img
-                              src={img}
-                              alt={`gallery ${idx}`}
-                              className="w-full h-full object-cover hover:scale-110 transition duration-300"
-                            />
+                            {media.type === 'video' ? (
+                              <video
+                                width="200"
+                                height="200"
+                                controls
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                              >
+                                <source src={media.src} type="video/mp4" />
+                              </video>
+                            ) : (
+                              <img
+                                src={media.src}
+                                alt={`gallery ${idx}`}
+                                className="w-full h-full object-cover hover:scale-110 transition duration-300"
+                              />
+                            )}
                           </div>
                         ))}
                       </div>
-                      <p className="text-center text-sm text-gray-600 mt-4 italic">
-                        💡 To edit: Replace image URLs or add videos (see code comments)
-                      </p>
                     </div>
                   )}
                 </div>
