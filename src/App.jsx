@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Heart, Mail, X, ChevronLeft, ChevronRight, LogOut } from 'lucide-react';
 
-export default function ValentinesSite() {
+export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -264,7 +264,7 @@ export default function ValentinesSite() {
                           'https://images.unsplash.com/photo-1505228395891-9a51e7e86e81?w=200&h=200&fit=crop',
                           'https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=200&h=200&fit=crop',
                           'https://images.unsplash.com/photo-1551028719-00167b16ebc5?w=200&h=200&fit=crop',
-                          'https://images.unsplash.com/photo-1507842931627-6cfc3a0e4d19?w=200&h=200&fit=crop',
+                          'https://images.unsplash.com/photo-1507843931627-6cfc3a0e4d19?w=200&h=200&fit=crop',
                           'https://images.unsplash.com/photo-1501772735318-d8214dc8b29f?w=200&h=200&fit=crop',
                           'https://images.unsplash.com/photo-1517457373614-b7152f800bb1?w=200&h=200&fit=crop',
                         ].map((img, idx) => (
