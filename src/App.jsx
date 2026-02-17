@@ -14,20 +14,20 @@ export default function App() {
   const [hoveredReason, setHoveredReason] = useState(null);
 
   const reasonMedia = [
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are really sexy!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are so cool!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are adventurous!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You are so nice!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are brilliant!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You talk so much!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You listen so well!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are fun to be with!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You encourage me so much!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are so thoughtful!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are truly authentic!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are hilarious!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'Your energy is amazing!' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You notice everything!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are really sexy' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are so cool' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are adventurous' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You are so nice' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are brilliant' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You talk too much' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You listen so well' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are fun to be with' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You encourage me so much' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are so thoughtful' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are truly authentic' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are hilarious' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'Your energy is amazing' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You notice everything' },
   ];
 
   const reasons = [
@@ -302,38 +302,25 @@ export default function App() {
 
                   {teddyMoved && (
                     <div className="bg-gradient-to-br from-rose-100 via-pink-100 to-red-100 rounded-2xl p-6 sm:p-8 animate-fade-in border-4 border-rose-200">
-                      <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {[
-                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs' },
-                          { type: 'video', src: 'https://drive.google.com/uc?export=view&id=1Qd0uqMGrufPWE3PFaC0C7WxRPOPVc5sQ' },
-                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P' },
-                          { type: 'video', src: 'https://drive.google.com/uc?export=view&id=1bdcy78myaocuputs3Q6u15FXFGyfPN6N' },
-                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-' },
-                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t' },
-                          { type: 'video', src: 'https://drive.google.com/uc?export=view&id=1HJT2LrvbQGXk-f8kkxgaeGkr8vuW76Dk' },
-                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s' },
-                        ].map((media, idx) => (
+                          "Your laugh is horrible.",
+                          "You make me talk too much",
+                          "You're easy to talk to",
+                          "Your presence brightens my day(somehow sha)",
+                          "You have a big P(personality lol)",
+                          "You found a way to make me comfortable around you",
+                          "You're nice",
+                          "You light up every room(I no know sha maybe)",
+                        ].map((message, idx) => (
                           <div
                             key={idx}
-                            className="h-32 sm:h-40 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition transform hover:scale-110 hover:-rotate-3 duration-300 cursor-pointer border-2 border-rose-200 hover:border-rose-500"
+                            className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition transform hover:scale-105 hover:-rotate-3 duration-300 cursor-pointer border-3 border-rose-300 hover:border-rose-500 animate-fade-in"
+                            style={{ animationDelay: `${idx * 0.1}s` }}
                           >
-                            {media.type === 'video' ? (
-                              <video
-                                width="200"
-                                height="200"
-                                controls
-                                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                className="hover:scale-125 transition duration-300"
-                              >
-                                <source src={media.src} type="video/mp4" />
-                              </video>
-                            ) : (
-                              <img
-                                src={media.src}
-                                alt={`gallery ${idx}`}
-                                className="w-full h-full object-cover hover:scale-125 transition duration-300"
-                              />
-                            )}
+                            <p className="text-center text-lg sm:text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                              💕 {message}
+                            </p>
                           </div>
                         ))}
                       </div>
@@ -374,12 +361,7 @@ export default function App() {
                 </div>
 
                 {/* Image for this reason */}
-                <div className="mb-8 h-64 sm:h-80 bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl flex items-center justify-center overflow-hidden hover:shadow-2xl transition transform hover:scale-110 duration-300 border-4 border-rose-200 cursor-pointer">
-                  <img 
-                    src={reasonMedia[selectedReason].src} 
-                    alt="reason" 
-                    className="w-full h-full object-cover hover:scale-125 transition duration-500"
-                  />
+                <div className="mb-8 h-20 bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl flex items-center justify-center overflow-hidden border-4 border-rose-200">
                 </div>
 
                 {/* Label underneath */}
