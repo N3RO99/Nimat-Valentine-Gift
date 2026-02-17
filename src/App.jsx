@@ -220,7 +220,7 @@ export default function App() {
                 Happy Valentine's Day
               </h1>
               <p className="text-3xl sm:text-4xl text-gray-700 font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Nimat</p>
-              <p className="text-lg sm:text-2xl text-rose-500 font-bold animate-pulse" style={{ fontFamily: 'Poppins, sans-serif' }}>Something special for you 💕</p>
+              <p className="text-lg sm:text-2xl text-rose-500 font-bold animate-pulse" style={{ fontFamily: 'Poppins, sans-serif' }}>Something truly special for you 💕</p>
             </div>
           )}
 
