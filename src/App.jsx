@@ -1,49 +1,50 @@
 import React, { useState } from 'react';
-import { Heart, Mail, X, ChevronLeft, ChevronRight, LogOut } from 'lucide-react';
+import { Heart, Mail, X, LogOut, Sparkles, Eye, EyeOff } from 'lucide-react';
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
   const [currentPage, setCurrentPage] = useState('home');
   const [showLetter, setShowLetter] = useState(false);
   const [teddyMoved, setTeddyMoved] = useState(false);
-  const [currentReason, setCurrentReason] = useState(0);
-  const [showHeartSlideshow, setShowHeartSlideshow] = useState(false);
+  const [selectedReason, setSelectedReason] = useState(null);
+  const [hoveredReason, setHoveredReason] = useState(null);
 
   const reasonMedia = [
-  { type: 'image', src: '/images/photo1.jpeg' },
-  { type: 'image', src: '/images/photo2.jpeg' },
-  { type: 'image', src: '/images/photo3.jpeg' },
-  { type: 'image', src: '/images/photo4.jpeg' },
-  { type: 'image', src: '/images/photo5.jpeg' },
-  { type: 'image', src: '/images/photo1.jpeg' },
-  { type: 'image', src: '/images/photo2.jpeg' },
-  { type: 'image', src: '/images/photo3.jpeg' },
-  { type: 'image', src: '/images/photo4.jpeg' },
-  { type: 'image', src: '/images/photo5.jpeg' },
-  { type: 'image', src: '/images/photo1.jpeg' },
-  { type: 'image', src: '/images/photo2.jpeg' },
-  { type: 'image', src: '/images/photo3.jpeg' },
-  { type: 'image', src: '/images/photo4.jpeg' },
-];
+    { type: 'image', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=400&fit=crop', label: 'You are really sexy!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop', label: 'You are so cool!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1506749410340-cdc579dc70c5?w=500&h=400&fit=crop', label: 'You are adventurous!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1502255917411-0ff2694c74ab?w=500&h=400&fit=crop', label: 'You are so nice!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=500&h=400&fit=crop', label: 'You are brilliant!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1520763185298-1b434c919eba?w=500&h=400&fit=crop', label: 'You talk so much!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1502720917128-1aa500764cbd?w=500&h=400&fit=crop', label: 'You listen so well!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1504384308090-cb894fdbb938?w=500&h=400&fit=crop', label: 'You are fun to be with!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1505735313671-1610ad7acac9?w=500&h=400&fit=crop', label: 'You encourage me so much!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&h=400&fit=crop', label: 'You are so thoughtful!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1507842485889-d1a5c34fb298?w=500&h=400&fit=crop', label: 'You are truly authentic!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1474657126481-24ffe2aafc64?w=500&h=400&fit=crop', label: 'You are hilarious!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1484480974769-658f7327a338?w=500&h=400&fit=crop', label: 'Your energy is amazing!' },
+    { type: 'image', src: 'https://images.unsplash.com/photo-1476514525535-07fb3b007d1d?w=500&h=400&fit=crop', label: 'You notice everything!' },
+  ];
 
   const reasons = [
-    { title: 'Sexy', emoji: '✨' },
-    { title: 'Ashawo', emoji: '😎' },
-    { title: 'Agbero', emoji: '🚗' },
-    { title: 'Nice', emoji: '💝' },
-    { title: 'Smart', emoji: '🧠' },
-    { title: 'Yapper', emoji: '💬' },
-    { title: 'Listener', emoji: '👂' },
-    { title: 'Fun to talk to', emoji: '😄' },
-    { title: 'Encouraging', emoji: '💪' },
-    { title: 'Thoughtful', emoji: '🤔' },
-    { title: "You're real and not fake", emoji: '✅' },
-    { title: 'Funny', emoji: '😂' },
-    { title: 'Good Energy', emoji: '⚡' },
-    { title: 'You notice the little things', emoji: '👀' },
+    { title: 'Sexy', emoji: '✨', idx: 0 },
+    { title: 'Ashawo', emoji: '😎', idx: 1 },
+    { title: 'Agbero', emoji: '🚗', idx: 2 },
+    { title: 'Nice', emoji: '💝', idx: 3 },
+    { title: 'Smart', emoji: '🧠', idx: 4 },
+    { title: 'Yapper', emoji: '💬', idx: 5 },
+    { title: 'Listener', emoji: '👂', idx: 6 },
+    { title: 'Fun to talk to', emoji: '😄', idx: 7 },
+    { title: 'Encouraging', emoji: '💪', idx: 8 },
+    { title: 'Thoughtful', emoji: '🤔', idx: 9 },
+    { title: "You're real and not fake", emoji: '✅', idx: 10 },
+    { title: 'Funny', emoji: '😂', idx: 11 },
+    { title: 'Good Energy', emoji: '⚡', idx: 12 },
+    { title: 'You notice the little things', emoji: '👀', idx: 13 },
   ];
 
   const handleLoginClick = () => {
@@ -65,13 +66,13 @@ export default function App() {
   if (!isLoggedIn) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-red-50 flex items-center justify-center p-4 relative overflow-hidden">
-        {/* Decorative hearts background */}
+        {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {[...Array(15)].map((_, i) => (
             <Heart
               key={i}
               size={Math.random() * 40 + 20}
-              className="absolute text-rose-200 opacity-30 animate-pulse"
+              className="absolute text-rose-200 opacity-30 animate-float"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -82,47 +83,79 @@ export default function App() {
           ))}
         </div>
 
-        <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md relative z-10 backdrop-blur-sm">
+        {/* Floating sparkles */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {[...Array(8)].map((_, i) => (
+            <Sparkles
+              key={i}
+              size={Math.random() * 20 + 10}
+              className="absolute text-pink-300 opacity-40 animate-pulse"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="bg-white rounded-3xl shadow-2xl p-8 w-full max-w-md relative z-10 backdrop-blur-sm hover:shadow-3xl transition-all duration-500 hover:scale-105 border-2 border-rose-100">
           <div className="text-center mb-8">
             <Heart size={48} className="mx-auto text-rose-500 mb-4 animate-bounce" fill="currentColor" />
-            <h1 className="text-4xl font-bold text-gray-800 mb-2">Happy Valentine's</h1>
-            <p className="text-rose-500 font-semibold">Login to your special message</p>
+            <h1 className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Happy Valentine's</h1>
+            <p className="text-rose-500 font-bold text-lg" style={{ fontFamily: 'Poppins, sans-serif' }}>Login to your special message</p>
           </div>
 
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Username</label>
+              <label className="block text-sm font-bold text-gray-700 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Username</label>
               <input
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder=""
-                className="w-full px-4 py-3 rounded-lg border-2 border-rose-200 focus:border-rose-500 focus:outline-none transition bg-rose-50"
+                className="w-full px-4 py-3 rounded-lg border-2 border-rose-200 focus:border-rose-500 focus:outline-none transition bg-rose-50 hover:bg-rose-100 focus:ring-4 focus:ring-rose-200 font-semibold"
+                style={{ fontFamily: 'Poppins, sans-serif' }}
               />
             </div>
 
             <div>
-              <label className="block text-sm font-semibold text-gray-700 mb-2">Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder=""
-                className="w-full px-4 py-3 rounded-lg border-2 border-rose-200 focus:border-rose-500 focus:outline-none transition bg-rose-50"
-              />
+              <label className="block text-sm font-bold text-gray-700 mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Password</label>
+              <div className="relative">
+                <input
+                  type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder=""
+                  className="w-full px-4 py-3 rounded-lg border-2 border-rose-200 focus:border-rose-500 focus:outline-none transition bg-rose-50 hover:bg-rose-100 focus:ring-4 focus:ring-rose-200 font-semibold pr-12"
+                  style={{ fontFamily: 'Poppins, sans-serif' }}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-rose-600 transition cursor-pointer"
+                >
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                </button>
+              </div>
             </div>
 
-            {loginError && <p className="text-red-500 text-sm font-semibold text-center">{loginError}</p>}
+            {loginError && (
+              <p className="text-red-500 text-sm font-bold text-center animate-bounce" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                {loginError}
+              </p>
+            )}
 
             <button
               onClick={handleLoginClick}
-              className="w-full bg-gradient-to-r from-rose-500 to-red-500 text-white font-bold py-3 rounded-lg hover:from-rose-600 hover:to-red-600 transition transform hover:scale-105 shadow-lg cursor-pointer"
+              className="w-full bg-gradient-to-r from-rose-500 to-red-500 text-white font-bold py-3 rounded-lg hover:from-rose-600 hover:to-red-600 transition transform hover:scale-110 shadow-lg cursor-pointer hover:shadow-2xl duration-300 text-lg"
+              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
-              Enter
+              ✨ Enter ✨
             </button>
           </div>
 
-          <p className="text-center text-gray-600 text-xs mt-6">
+          <p className="text-center text-gray-600 text-xs mt-6 font-semibold" style={{ fontFamily: 'Poppins, sans-serif' }}>
             💕 Just so you know I'm better(From Jesse to You!!) 💕
           </p>
         </div>
@@ -133,81 +166,84 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-rose-50 via-pink-50 to-red-50">
       {/* Navigation */}
-      <nav className="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex gap-4">
+      <nav className="bg-white/80 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b-2 border-rose-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+          <div className="flex gap-2 sm:gap-4">
             <button
               onClick={() => {
                 setCurrentPage('home');
                 setShowLetter(false);
                 setTeddyMoved(false);
               }}
-              className={`px-6 py-2 rounded-lg font-bold transition cursor-pointer ${
+              className={`px-4 sm:px-6 py-2 rounded-lg font-bold transition cursor-pointer text-sm sm:text-base ${
                 currentPage === 'home'
-                  ? 'bg-rose-500 text-white'
-                  : 'text-gray-700 hover:bg-rose-100'
-              }`}
+                  ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-lg hover:shadow-xl transform hover:scale-110'
+                  : 'text-gray-700 hover:bg-rose-100 hover:scale-105'
+              } duration-300`}
+              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               Home
             </button>
             <button
               onClick={() => {
                 setCurrentPage('reasons');
-                setShowHeartSlideshow(false);
+                setSelectedReason(null);
               }}
-              className={`px-6 py-2 rounded-lg font-bold transition cursor-pointer ${
+              className={`px-4 sm:px-6 py-2 rounded-lg font-bold transition cursor-pointer text-sm sm:text-base ${
                 currentPage === 'reasons'
-                  ? 'bg-rose-500 text-white'
-                  : 'text-gray-700 hover:bg-rose-100'
-              }`}
+                  ? 'bg-gradient-to-r from-rose-500 to-pink-500 text-white shadow-lg hover:shadow-xl transform hover:scale-110'
+                  : 'text-gray-700 hover:bg-rose-100 hover:scale-105'
+              } duration-300`}
+              style={{ fontFamily: 'Poppins, sans-serif' }}
             >
               14 Reasons
             </button>
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 px-4 py-2 text-gray-700 hover:bg-red-100 rounded-lg transition font-semibold cursor-pointer"
+            className="flex items-center gap-2 px-3 sm:px-4 py-2 text-gray-700 hover:bg-red-100 rounded-lg transition font-bold cursor-pointer text-sm sm:text-base hover:scale-110 hover:shadow-lg duration-300"
+            style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             <LogOut size={20} />
-            Logout
+            <span className="hidden sm:inline">Logout</span>
           </button>
         </div>
       </nav>
 
       {/* Home Page */}
       {currentPage === 'home' && (
-        <div className="min-h-screen pt-20 pb-20 px-4">
+        <div className="min-h-screen pt-12 sm:pt-20 pb-20 px-4 sm:px-6">
           {/* Main Greeting */}
           {!teddyMoved && !showLetter && (
-            <div className="text-center mb-20 animate-fade-in">
-              <h1 className="text-6xl font-bold bg-gradient-to-r from-rose-600 via-pink-500 to-red-500 bg-clip-text text-transparent mb-4">
+            <div className="text-center mb-16 sm:mb-20 animate-fade-in">
+              <h1 className="text-5xl sm:text-7xl font-black bg-gradient-to-r from-rose-600 via-pink-500 to-red-500 bg-clip-text text-transparent mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Happy Valentine's Day
               </h1>
-              <p className="text-3xl text-gray-700 font-light mb-2">Nimat</p>
-              <p className="text-xl text-rose-500">Something special for you 💕</p>
+              <p className="text-3xl sm:text-4xl text-gray-700 font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Nimat</p>
+              <p className="text-lg sm:text-2xl text-rose-500 font-bold animate-pulse" style={{ fontFamily: 'Poppins, sans-serif' }}>Something special for you 💕</p>
             </div>
           )}
 
           <div className="max-w-6xl mx-auto">
             {/* Envelope Section */}
-            <div className="mb-20">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="mb-16 sm:mb-20">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div className="flex justify-center md:order-2">
                   <button
                     onClick={() => setShowLetter(!showLetter)}
                     className="relative group cursor-pointer"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-rose-400 to-pink-400 rounded-2xl blur-2xl opacity-40 group-hover:opacity-60 transition"></div>
-                    <div className="relative bg-white rounded-2xl p-12 shadow-2xl hover:shadow-3xl transition transform hover:scale-110 duration-300">
-                      <Mail size={120} className="text-rose-500 mx-auto" />
-                      <p className="text-center text-gray-700 font-bold mt-4">Click to open</p>
+                    <div className="absolute inset-0 bg-gradient-to-r from-rose-400 via-pink-400 to-red-400 rounded-2xl blur-3xl opacity-60 group-hover:opacity-100 transition duration-500 group-hover:scale-110"></div>
+                    <div className="relative bg-white rounded-2xl p-8 sm:p-12 shadow-2xl hover:shadow-3xl transition transform group-hover:scale-125 duration-500 group-hover:-rotate-6 border-4 border-rose-200">
+                      <Mail size={100} className="text-rose-500 mx-auto sm:w-[120px] sm:h-[120px] group-hover:animate-bounce" />
+                      <p className="text-center text-gray-700 font-black mt-4 text-sm sm:text-base" style={{ fontFamily: 'Poppins, sans-serif' }}>Click to open</p>
                     </div>
                   </button>
                 </div>
 
                 <div className="md:order-1">
-                  <h2 className="text-4xl font-bold text-gray-800 mb-4">A Letter For You</h2>
-                  <p className="text-gray-600 text-lg leading-relaxed">
+                  <h2 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>A Letter For You</h2>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed font-semibold" style={{ fontFamily: 'Poppins, sans-serif' }}>
                     I wanted to take a moment to let you know how much you mean to me. Click the envelope to read what's on my heart.
                   </p>
                 </div>
@@ -215,24 +251,24 @@ export default function App() {
 
               {/* Letter Modal */}
               {showLetter && (
-                <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-40 animate-fade-in">
-                  <div className="bg-white rounded-3xl max-w-2xl w-full p-12 shadow-2xl relative max-h-96 overflow-y-auto">
+                <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-40 animate-fade-in backdrop-blur-sm">
+                  <div className="bg-white rounded-3xl max-w-2xl w-full p-8 sm:p-12 shadow-2xl relative max-h-96 overflow-y-auto border-4 border-rose-300 transform hover:scale-105 transition duration-300">
                     <button
                       onClick={() => setShowLetter(false)}
-                      className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 cursor-pointer"
+                      className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 cursor-pointer hover:scale-125 transition bg-gray-100 hover:bg-red-200 p-2 rounded-full duration-300"
                     >
                       <X size={28} />
                     </button>
-                    <h3 className="text-3xl font-bold text-rose-600 mb-6">For You</h3>
-                    <div className="text-gray-700 leading-relaxed space-y-4 font-light text-lg">
+                    <h3 className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>For You</h3>
+                    <div className="text-gray-700 leading-relaxed space-y-4 font-semibold text-sm sm:text-lg" style={{ fontFamily: 'Poppins, sans-serif' }}>
                       <p>
-                       I know we haven’t known each other for a very long time, but honestly, it feels like I’ve known you much longer. Some people just have a way of making time feel different, and you’re one of them. From the start, you’ve been so nice and easy to talk to, and that’s something I really appreciate about you.
+                       I know we haven't known each other for a very long time, but honestly, it feels like I've known you much longer. Some people just have a way of making time feel different, and you're one of them. From the start, you've been so nice and easy to talk to, and that's something I really appreciate about you.
                       </p>
                       <p>
-                       You have this calm, kind energy that makes people feel comfortable, and I can say you’ve definitely made me feel that way. I don’t open up or feel relaxed around everyone, so the fact that I can around you means a lot. Not everyone can do that, and I hope you know how special that is.
+                       You have this calm, kind energy that makes people feel comfortable, and I can say you've definitely made me feel that way. I don't open up or feel relaxed around everyone, so the fact that I can around you means a lot. Not everyone can do that, and I hope you know how special that is.
                       </p>
                       <p>
-                        I just wanted to let you know that your kindness and the way you treat people doesn’t go unnoticed. You make things a little brighter just by being you. I’m really glad I got the chance to know you, even if it hasn’t been that long yet.
+                        I just wanted to let you know that your kindness and the way you treat people doesn't go unnoticed. You make things a little brighter just by being you. I'm really glad I got the chance to know you, even if it hasn't been that long yet.
                       </p>
                     </div>
                   </div>
@@ -241,48 +277,45 @@ export default function App() {
             </div>
 
             {/* Teddy Bear Section */}
-            <div className="mb-20">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="mb-16 sm:mb-20">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12 items-center">
                 <div className="flex justify-center">
                   <button
                     onClick={() => setTeddyMoved(!teddyMoved)}
                     className="relative group cursor-pointer transition-all duration-500"
                   >
-                    <div
-                      className={`text-9xl transition-all duration-500 ${
-                        teddyMoved ? 'translate-x-0' : 'hover:scale-110'
-                      }`}
-                    >
+                    <div className="absolute inset-0 bg-gradient-to-r from-rose-300 to-pink-300 rounded-full blur-3xl opacity-0 group-hover:opacity-60 transition duration-500 group-hover:scale-125"></div>
+                    <div className="text-7xl sm:text-9xl transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 relative z-10">
                       🧸
                     </div>
-                    <p className="text-center text-gray-700 font-bold mt-4 text-sm">
-                      {teddyMoved ? 'Click to hide' : 'Click me!'}
+                    <p className="text-center text-gray-700 font-black mt-4 text-sm" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      {teddyMoved ? '🔻 Click to hide' : '🔺 Click me!'}
                     </p>
                   </button>
                 </div>
 
                 <div>
-                  <h2 className="text-4xl font-bold text-gray-800 mb-4">Just For You</h2>
-                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                  <h2 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Just For You</h2>
+                  <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-6 font-semibold" style={{ fontFamily: 'Poppins, sans-serif' }}>
                     A little teddy bear bringing you all the warmth and love this Valentine's Day.
                   </p>
 
                   {teddyMoved && (
-                    <div className="bg-gradient-to-r from-rose-100 to-pink-100 rounded-2xl p-8 animate-fade-in">
-                      <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gradient-to-br from-rose-100 via-pink-100 to-red-100 rounded-2xl p-6 sm:p-8 animate-fade-in border-4 border-rose-200">
+                      <div className="grid grid-cols-2 gap-3 sm:gap-4">
                         {[
-                          { type: 'image', src: '/public/images/photo1.jpeg' },
-                          { type: 'video', src: '/public/images/video1.mp4' },
-                          { type: 'image', src: '/public/images/photo2.jpeg' },
-                          { type: 'video', src: '/public/images/video2.mp4' },
-                          { type: 'image', src: '/public/images/photo3.jpeg' },
-                          { type: 'image', src: '/public/images/photo4.jpeg' },
-                          { type: 'video', src: '/public/images/video3.mp4' },
-                          { type: 'image', src: '/public/images/photo5.jpeg' },
+                          { type: 'image', src: '/images/photo1.jpeg' },
+                          { type: 'video', src: '/images/video1.mp4' },
+                          { type: 'image', src: '/images/photo2.jpeg' },
+                          { type: 'video', src: '/images/video2.mp4' },
+                          { type: 'image', src: '/images/photo3.jpeg' },
+                          { type: 'image', src: '/images/photo4.jpeg' },
+                          { type: 'video', src: '/images/video3.mp4' },
+                          { type: 'image', src: '/images/photo5.jpeg' },
                         ].map((media, idx) => (
                           <div
                             key={idx}
-                            className="h-40 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+                            className="h-32 sm:h-40 bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transition transform hover:scale-110 hover:-rotate-3 duration-300 cursor-pointer border-2 border-rose-200 hover:border-rose-500"
                           >
                             {media.type === 'video' ? (
                               <video
@@ -290,6 +323,7 @@ export default function App() {
                                 height="200"
                                 controls
                                 style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                className="hover:scale-125 transition duration-300"
                               >
                                 <source src={media.src} type="video/mp4" />
                               </video>
@@ -297,7 +331,7 @@ export default function App() {
                               <img
                                 src={media.src}
                                 alt={`gallery ${idx}`}
-                                className="w-full h-full object-cover hover:scale-110 transition duration-300"
+                                className="w-full h-full object-cover hover:scale-125 transition duration-300"
                               />
                             )}
                           </div>
@@ -314,116 +348,116 @@ export default function App() {
 
       {/* 14 Reasons Page */}
       {currentPage === 'reasons' && (
-        <div className="min-h-screen pt-20 pb-20 px-4">
-          <div className="max-w-4xl mx-auto text-center mb-16 animate-fade-in">
-            <h2 className="text-5xl font-bold text-gray-800 mb-4">Why You're Absolutely Amazing</h2>
-            <p className="text-xl text-rose-500 font-semibold">14 reasons you make every day better</p>
+        <div className="min-h-screen pt-12 sm:pt-20 pb-20 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto text-center mb-12 sm:mb-16 animate-fade-in">
+            <h2 className="text-4xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-500 to-red-500 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>Why You're Absolutely Amazing</h2>
+            <p className="text-lg sm:text-xl text-rose-600 font-bold" style={{ fontFamily: 'Poppins, sans-serif' }}>✨ Click on any reason to see a special message ✨</p>
           </div>
 
-          {/* Heart Slideshow */}
-          {!showHeartSlideshow ? (
-            <div className="flex justify-center mb-16">
-              <button
-                onClick={() => {
-                  setShowHeartSlideshow(true);
-                  setCurrentReason(0);
-                }}
-                className="relative group cursor-pointer"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-rose-400 to-red-400 rounded-full blur-3xl opacity-40 group-hover:opacity-60 transition"></div>
-                <div className="relative bg-white rounded-full p-8 shadow-2xl hover:shadow-3xl transition transform hover:scale-110 duration-300">
-                  <Heart size={100} className="text-rose-500" fill="currentColor" />
-                </div>
-              </button>
-            </div>
-          ) : (
-            <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-40">
-              <div className="bg-white rounded-3xl max-w-2xl w-full p-12 shadow-2xl">
+          {/* Reason Detail Modal */}
+          {selectedReason !== null && (
+            <div className="fixed inset-0 bg-black/70 flex items-center justify-center p-4 z-40 animate-fade-in backdrop-blur-sm" onClick={() => setSelectedReason(null)}>
+              <div className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-12 shadow-2xl border-4 border-rose-300 transform hover:scale-105 transition duration-300 relative" onClick={(e) => e.stopPropagation()}>
                 <button
-                  onClick={() => setShowHeartSlideshow(false)}
-                  className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 z-50 cursor-pointer"
+                  onClick={() => setSelectedReason(null)}
+                  className="absolute top-6 right-6 text-gray-500 hover:text-gray-700 z-50 cursor-pointer hover:scale-125 transition bg-gray-100 hover:bg-red-200 p-2 rounded-full duration-300"
                 >
                   <X size={32} />
                 </button>
 
                 <div className="text-center mb-8">
-                  <div className="text-8xl mb-6">{reasons[currentReason].emoji}</div>
-                  <h3 className="text-4xl font-bold text-rose-600 mb-4">
-                    {currentReason + 1}. {reasons[currentReason].title}
+                  <div className="text-6xl sm:text-8xl mb-6 animate-bounce">{reasons[selectedReason].emoji}</div>
+                  <h3 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    {selectedReason + 1}. {reasons[selectedReason].title}
                   </h3>
-                  <div className="h-1 w-24 bg-gradient-to-r from-rose-400 to-pink-400 mx-auto rounded-full"></div>
+                  <div className="h-2 w-32 bg-gradient-to-r from-rose-400 via-pink-400 to-red-400 mx-auto rounded-full animate-pulse"></div>
                 </div>
 
-                {/* Sample image for each reason */}
-                <div className="mb-8 h-64 bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl flex items-center justify-center overflow-hidden">
-                  {reasonMedia[currentReason].type === 'video' ? (
-                    <video width="500" height="300" controls style={{ width: '100%', height: '100%', objectFit: 'cover' }}>
-                      <source src={reasonMedia[currentReason].src} type="video/mp4" />
-                    </video>
-                  ) : (
-                    <img src={reasonMedia[currentReason].src} alt="reason" className="w-full h-full object-cover" />
-                  )}
+                {/* Image for this reason */}
+                <div className="mb-8 h-64 sm:h-80 bg-gradient-to-br from-rose-100 to-pink-100 rounded-2xl flex items-center justify-center overflow-hidden hover:shadow-2xl transition transform hover:scale-110 duration-300 border-4 border-rose-200 cursor-pointer">
+                  <img 
+                    src={reasonMedia[selectedReason].src} 
+                    alt="reason" 
+                    className="w-full h-full object-cover hover:scale-125 transition duration-500"
+                  />
                 </div>
 
-                <div className="flex items-center justify-between gap-4">
+                {/* Label underneath */}
+                <div className="bg-gradient-to-r from-rose-100 via-pink-100 to-red-100 rounded-2xl p-6 text-center transform hover:scale-110 transition duration-300 mb-6 border-3 border-rose-300 hover:shadow-xl hover:-rotate-2">
+                  <p className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    {reasonMedia[selectedReason].label}
+                  </p>
+                </div>
+
+                {/* Navigation buttons */}
+                <div className="flex gap-3 sm:gap-4 justify-center flex-wrap">
                   <button
-                    onClick={() => setCurrentReason(Math.max(0, currentReason - 1))}
-                    disabled={currentReason === 0}
-                    className="p-3 bg-rose-100 text-rose-600 rounded-full hover:bg-rose-200 disabled:opacity-50 disabled:cursor-not-allowed transition cursor-pointer"
+                    onClick={() => setSelectedReason(Math.max(0, selectedReason - 1))}
+                    disabled={selectedReason === 0}
+                    className="px-6 py-3 bg-gradient-to-r from-rose-400 to-pink-400 text-white rounded-lg hover:from-rose-500 hover:to-pink-500 disabled:opacity-50 disabled:cursor-not-allowed transition font-bold transform hover:scale-110 hover:shadow-lg duration-300"
+                    style={{ fontFamily: 'Poppins, sans-serif' }}
                   >
-                    <ChevronLeft size={24} />
+                    ← Previous
                   </button>
-
-                  <div className="flex-1">
-                    <div className="flex justify-center gap-2">
-                      {reasons.map((_, idx) => (
-                        <button
-                          key={idx}
-                          onClick={() => setCurrentReason(idx)}
-                          className={`h-2 rounded-full transition cursor-pointer ${
-                            idx === currentReason
-                              ? 'bg-rose-500 w-8'
-                              : 'bg-rose-200 w-2'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-
                   <button
-                    onClick={() => setCurrentReason(Math.min(reasons.length - 1, currentReason + 1))}
-                    disabled={currentReason === reasons.length - 1}
-                    className="p-3 bg-rose-100 text-rose-600 rounded-full hover:bg-rose-200 disabled:opacity-50 disabled:cursor-not-allowed transition cursor-pointer"
+                    onClick={() => setSelectedReason(null)}
+                    className="px-6 py-3 bg-gradient-to-r from-gray-300 to-gray-400 text-gray-800 rounded-lg hover:from-gray-400 hover:to-gray-500 transition font-bold transform hover:scale-110 hover:shadow-lg duration-300"
+                    style={{ fontFamily: 'Poppins, sans-serif' }}
                   >
-                    <ChevronRight size={24} />
+                    Close
+                  </button>
+                  <button
+                    onClick={() => setSelectedReason(Math.min(reasons.length - 1, selectedReason + 1))}
+                    disabled={selectedReason === reasons.length - 1}
+                    className="px-6 py-3 bg-gradient-to-r from-rose-400 to-pink-400 text-white rounded-lg hover:from-rose-500 hover:to-pink-500 disabled:opacity-50 disabled:cursor-not-allowed transition font-bold transform hover:scale-110 hover:shadow-lg duration-300"
+                    style={{ fontFamily: 'Poppins, sans-serif' }}
+                  >
+                    Next →
                   </button>
                 </div>
-
-                <p className="text-center text-gray-600 text-sm mt-8">
-                  {currentReason + 1} of {reasons.length}
-                </p>
               </div>
             </div>
           )}
 
           {/* Reasons Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {reasons.map((reason, idx) => (
               <button
                 key={idx}
-                onClick={() => {
-                  setShowHeartSlideshow(true);
-                  setCurrentReason(idx);
-                }}
-                className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition transform hover:-translate-y-2 cursor-pointer text-left"
+                onClick={() => setSelectedReason(idx)}
+                onMouseEnter={() => setHoveredReason(idx)}
+                onMouseLeave={() => setHoveredReason(null)}
+                className="group relative bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-4 hover:scale-110 cursor-pointer text-left duration-300 overflow-hidden border-2 border-rose-200 hover:border-rose-500"
               >
-                <div className="text-6xl mb-4 text-center group-hover:scale-125 transition duration-300">
-                  {reason.emoji}
+                {/* Gradient background on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-rose-100 to-pink-100 opacity-0 group-hover:opacity-100 transition duration-300 z-0"></div>
+
+                <div className="relative z-10">
+                  <div className="text-5xl sm:text-6xl mb-4 text-center group-hover:scale-150 transition duration-300 group-hover:rotate-12 inline-block w-full">
+                    {reason.emoji}
+                  </div>
+                  <p className="text-center text-lg sm:text-xl font-black text-gray-800 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-rose-600 group-hover:to-pink-600 transition duration-300" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                    {idx + 1}. {reason.title}
+                  </p>
+                  <div className="h-1 w-12 bg-gradient-to-r from-rose-400 to-pink-400 mx-auto rounded-full mt-4 opacity-0 group-hover:opacity-100 transition duration-300 group-hover:w-20"></div>
                 </div>
-                <p className="text-center text-lg font-bold text-gray-800">
-                  {idx + 1}. {reason.title}
-                </p>
-                <div className="h-1 w-12 bg-gradient-to-r from-rose-400 to-pink-400 mx-auto rounded-full mt-4 opacity-0 group-hover:opacity-100 transition"></div>
+
+                {/* Sparkle effect */}
+                {hoveredReason === idx && (
+                  <div className="absolute inset-0 pointer-events-none">
+                    {[...Array(5)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute w-2 h-2 bg-rose-400 rounded-full animate-ping"
+                        style={{
+                          left: `${Math.random() * 100}%`,
+                          top: `${Math.random() * 100}%`,
+                          animationDelay: `${i * 0.1}s`,
+                        }}
+                      />
+                    ))}
+                  </div>
+                )}
               </button>
             ))}
           </div>
@@ -432,19 +466,40 @@ export default function App() {
 
       {/* Floating decoration */}
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+
         @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-20px); }
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
         }
         @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
         }
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(244, 63, 94, 0.5); }
+          50% { box-shadow: 0 0 40px rgba(244, 63, 94, 0.8); }
+        }
+        
         .animate-float {
           animation: float 3s ease-in-out infinite;
         }
         .animate-fade-in {
           animation: fade-in 0.6s ease-out;
+        }
+        .animate-pulse-glow {
+          animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Media queries for better responsive design */
+        @media (max-width: 640px) {
+          h1 { font-size: 2rem; }
+          h2 { font-size: 1.875rem; }
+          p { font-size: 0.875rem; }
+        }
+
+        * {
+          font-family: 'Poppins', sans-serif;
         }
       `}</style>
     </div>
