@@ -14,21 +14,21 @@ export default function App() {
   const [hoveredReason, setHoveredReason] = useState(null);
 
   const reasonMedia = [
-  { type: 'image', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=400&fit=crop', label: 'You are really sexy!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop', label: 'You are so cool!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1506749410340-cdc579dc70c5?w=500&h=400&fit=crop', label: 'You are adventurous!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1502255917411-0ff2694c74ab?w=500&h=400&fit=crop', label: 'You are so nice!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=500&h=400&fit=crop', label: 'You are brilliant!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1520763185298-1b434c919eba?w=500&h=400&fit=crop', label: 'You talk so much!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1502720917128-1aa500764cbd?w=500&h=400&fit=crop', label: 'You listen so well!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1504384308090-cb894fdbb938?w=500&h=400&fit=crop', label: 'You are fun to be with!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1505735313671-1610ad7acac9?w=500&h=400&fit=crop', label: 'You encourage me so much!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&h=400&fit=crop', label: 'You are so thoughtful!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1507842485889-d1a5c34fb298?w=500&h=400&fit=crop', label: 'You are truly authentic!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1474657126481-24ffe2aafc64?w=500&h=400&fit=crop', label: 'You are hilarious!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1484480974769-658f7327a338?w=500&h=400&fit=crop', label: 'Your energy is amazing!' },
-  { type: 'image', src: 'https://images.unsplash.com/photo-1476514525535-07fb3b007d1d?w=500&h=400&fit=crop', label: 'You notice everything!' },
-];
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are really sexy!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are so cool!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are adventurous!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You are so nice!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are brilliant!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You talk so much!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You listen so well!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are fun to be with!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You encourage me so much!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are so thoughtful!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are truly authentic!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are hilarious!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'Your energy is amazing!' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You notice everything!' },
+  ];
 
   const reasons = [
     { title: 'Sexy', emoji: '✨', idx: 0 },
@@ -220,7 +220,7 @@ export default function App() {
                 Happy Valentine's Day
               </h1>
               <p className="text-3xl sm:text-4xl text-gray-700 font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Nimat</p>
-              <p className="text-lg sm:text-2xl text-rose-500 font-bold animate-pulse" style={{ fontFamily: 'Poppins, sans-serif' }}>Something truly special for you 💕</p>
+              <p className="text-lg sm:text-2xl text-rose-500 font-bold animate-pulse" style={{ fontFamily: 'Poppins, sans-serif' }}>Something special for you 💕</p>
             </div>
           )}
 
@@ -304,14 +304,14 @@ export default function App() {
                     <div className="bg-gradient-to-br from-rose-100 via-pink-100 to-red-100 rounded-2xl p-6 sm:p-8 animate-fade-in border-4 border-rose-200">
                       <div className="grid grid-cols-2 gap-3 sm:gap-4">
                         {[
-                          { type: 'image', src: '/images/photo1.jpeg' },
-                          { type: 'video', src: '/images/video1.mp4' },
-                          { type: 'image', src: '/images/photo2.jpeg' },
-                          { type: 'video', src: '/images/video2.mp4' },
-                          { type: 'image', src: '/images/photo3.jpeg' },
-                          { type: 'image', src: '/images/photo4.jpeg' },
-                          { type: 'video', src: '/images/video3.mp4' },
-                          { type: 'image', src: '/images/photo5.jpeg' },
+                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs' },
+                          { type: 'video', src: 'https://drive.google.com/uc?export=view&id=1Qd0uqMGrufPWE3PFaC0C7WxRPOPVc5sQ' },
+                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P' },
+                          { type: 'video', src: 'https://drive.google.com/uc?export=view&id=1bdcy78myaocuputs3Q6u15FXFGyfPN6N' },
+                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-' },
+                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t' },
+                          { type: 'video', src: 'https://drive.google.com/uc?export=view&id=1HJT2LrvbQGXk-f8kkxgaeGkr8vuW76Dk' },
+                          { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s' },
                         ].map((media, idx) => (
                           <div
                             key={idx}
