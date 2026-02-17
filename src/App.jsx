@@ -95,7 +95,7 @@ export default function App() {
       reasonLabels: [
         'Your smile is beautiful!',
         'You\'re so friendly!',
-        'Good energy',
+        'Probably more extroverted than I am',
         'You\'re so nice!',
         'You\'re definitely smart cause being a doctor, sheesh',
         'Great conversations with you!',
