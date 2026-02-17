@@ -14,21 +14,21 @@ export default function App() {
   const [hoveredReason, setHoveredReason] = useState(null);
 
   const reasonMedia = [
-    { type: 'image', src: '/images/photo1.jpeg', label: 'You are really sexy!' },
-    { type: 'image', src: '/images/photo2.jpeg', label: 'You are so cool!' },
-    { type: 'image', src: '/images/photo3.jpeg', label: 'You are adventurous!' },
-    { type: 'image', src: '/images/photo4.jpeg', label: 'You are so nice!' },
-    { type: 'image', src: '/images/photo5.jpeg', label: 'You are brilliant!' },
-    { type: 'image', src: '/images/photo1.jpeg', label: 'You talk so much!' },
-    { type: 'image', src: '/images/photo2.jpeg', label: 'You listen so well!' },
-    { type: 'image', src: '/images/photo3.jpeg', label: 'You are fun to be with!' },
-    { type: 'image', src: '/images/photo4.jpeg', label: 'You encourage me so much!' },
-    { type: 'image', src: '/images/photo5.jpeg', label: 'You are so thoughtful!' },
-    { type: 'image', src: '/images/photo1.jpeg', label: 'You are truly authentic!' },
-    { type: 'image', src: '/images/photo2.jpeg', label: 'You are hilarious!' },
-    { type: 'image', src: '/images/photo3.jpeg', label: 'Your energy is amazing!' },
-    { type: 'image', src: '/images/photo4.jpeg', label: 'You notice everything!' },
-  ];
+  { type: 'image', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=400&fit=crop', label: 'You are really sexy!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop', label: 'You are so cool!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1506749410340-cdc579dc70c5?w=500&h=400&fit=crop', label: 'You are adventurous!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1502255917411-0ff2694c74ab?w=500&h=400&fit=crop', label: 'You are so nice!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=500&h=400&fit=crop', label: 'You are brilliant!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1520763185298-1b434c919eba?w=500&h=400&fit=crop', label: 'You talk so much!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1502720917128-1aa500764cbd?w=500&h=400&fit=crop', label: 'You listen so well!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1504384308090-cb894fdbb938?w=500&h=400&fit=crop', label: 'You are fun to be with!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1505735313671-1610ad7acac9?w=500&h=400&fit=crop', label: 'You encourage me so much!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=500&h=400&fit=crop', label: 'You are so thoughtful!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1507842485889-d1a5c34fb298?w=500&h=400&fit=crop', label: 'You are truly authentic!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1474657126481-24ffe2aafc64?w=500&h=400&fit=crop', label: 'You are hilarious!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1484480974769-658f7327a338?w=500&h=400&fit=crop', label: 'Your energy is amazing!' },
+  { type: 'image', src: 'https://images.unsplash.com/photo-1476514525535-07fb3b007d1d?w=500&h=400&fit=crop', label: 'You notice everything!' },
+];
 
   const reasons = [
     { title: 'Sexy', emoji: '✨', idx: 0 },
