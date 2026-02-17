@@ -65,7 +65,7 @@ export default function App() {
     },
     'dimplesnova': {
       password: 'Tolu',
-      letter: 'I know we\'ve only known each other for a couple of days, but honestly it\'s been so much fun getting to know you! You\'ve been really fun to talk to, and I have to say you\'re pretty interesting and funny too.\n\nWhat really caught me was how similar our music taste is. It\'s funny how we ended up talking for the entire day the other day – time just flew by! That\'s when I realized how easy it is to just vibe with you.\n\nI\'m really looking forward to getting to know you more. You bring such good energy, and I appreciate how genuine and fun you are.',
+      letter: 'I know we\'ve only known each other for a couple of days, but honestly it\'s been so much fun getting to know you! You\'ve been really fun to talk to, and I have to say you\'re pretty interesting and funny too.\n\nWhat really caught me was how similar our music taste is. It\'s funny how we ended up talking for the entire day the other day, time just flew by! That\'s when I realized how easy it is to just vibe with you.\n\nI\'m really looking forward to getting to know you more. You bring such good energy, and I appreciate how genuine and fun you are.',
       teddyMessages: [
         "You're nice.",
         "You're probably more extroverted than I am.",
