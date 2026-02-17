@@ -15,6 +15,7 @@ export default function App() {
   const [selectedReason, setSelectedReason] = useState(null);
   const [hoveredReason, setHoveredReason] = useState(null);
 
+
   // User data with personalized messages
   const users = {
     'Nimattheashawo': {
@@ -73,8 +74,8 @@ export default function App() {
         "You have a nice smile.",
         "Good music taste.",
         "It's been really fun getting to know you.",
-        "Your laugh is infectious.",
-        "You make me smile.",
+        "Questionable #1 Nigerian artist",
+        "You are very friendly.",
       ],
       reasons: [
         { title: 'Bright Smile', emoji: '✨', idx: 0 },
@@ -95,18 +96,18 @@ export default function App() {
       reasonLabels: [
         'Your smile is beautiful!',
         'You\'re so friendly!',
-        'Your energy is contagious!',
+        'Good energy',
         'You\'re so nice!',
-        'You\'re brilliant!',
+        'You\'re definitely smart cause being a doctor, sheesh',
         'Great conversations with you!',
-        'You listen so well!',
-        'You\'re fun to be with!',
+        'Good listener',
+        'You\'re fun to talk to',
         'Your ambition is inspiring!',
         'You\'re such a nice person!',
         'You\'re genuinely authentic!',
-        'You\'re hilarious!',
+        'You\'re funny',
         'Your energy is amazing!',
-        'Your height is perfect!'
+        'I wish I was 6"5 like you!'
       ]
     }
   };
@@ -444,7 +445,7 @@ export default function App() {
                   </button>
                   <button
                     onClick={() => setSelectedReason(Math.min(users[currentUser].reasons.length - 1, selectedReason + 1))}
-                    disabled={selectedReason === reasons.length - 1}
+                    disabled={selectedReason === users[currentUser].reasons.length - 1}
                     className="px-6 py-3 bg-gradient-to-r from-rose-400 to-pink-400 text-white rounded-lg hover:from-rose-500 hover:to-pink-500 disabled:opacity-50 disabled:cursor-not-allowed transition font-bold transform hover:scale-110 hover:shadow-lg duration-300"
                     style={{ fontFamily: 'Poppins, sans-serif' }}
                   >
