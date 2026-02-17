@@ -407,7 +407,7 @@ export default function App() {
                 </button>
 
                 <div className="text-center mb-8">
-                  <div className="text-6xl sm:text-8xl mb-6 animate-bounce">{reasons[selectedReason].emoji}</div>
+                  <div className="text-6xl sm:text-8xl mb-6 animate-bounce">{users[currentUser].reasons[selectedReason].emoji}</div>
                   <h3 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
                     {selectedReason + 1}. {users[currentUser].reasons[selectedReason].title}
                   </h3>
@@ -443,7 +443,7 @@ export default function App() {
                     Close
                   </button>
                   <button
-                    onClick={() => setSelectedReason(Math.min(reasons.length - 1, selectedReason + 1))}
+                    onClick={() => setSelectedReason(Math.min(users[currentUser].reasons.length - 1, selectedReason + 1))}
                     disabled={selectedReason === reasons.length - 1}
                     className="px-6 py-3 bg-gradient-to-r from-rose-400 to-pink-400 text-white rounded-lg hover:from-rose-500 hover:to-pink-500 disabled:opacity-50 disabled:cursor-not-allowed transition font-bold transform hover:scale-110 hover:shadow-lg duration-300"
                     style={{ fontFamily: 'Poppins, sans-serif' }}
