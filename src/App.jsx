@@ -14,7 +14,7 @@ export default function App() {
   const [hoveredReason, setHoveredReason] = useState(null);
 
   const reasonMedia = [
-    { type: 'image', src: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=400&fit=crop', label: 'You are really sexy!' },
+    { type: 'image', src: '/images/photo3.jpeg', label: 'You are really sexy!' },
     { type: 'image', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop', label: 'You are so cool!' },
     { type: 'image', src: 'https://images.unsplash.com/photo-1506749410340-cdc579dc70c5?w=500&h=400&fit=crop', label: 'You are adventurous!' },
     { type: 'image', src: 'https://images.unsplash.com/photo-1502255917411-0ff2694c74ab?w=500&h=400&fit=crop', label: 'You are so nice!' },
