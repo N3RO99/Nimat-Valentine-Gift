@@ -7,49 +7,113 @@ export default function App() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
+  const [currentUser, setCurrentUser] = useState(null);
   const [currentPage, setCurrentPage] = useState('home');
   const [showLetter, setShowLetter] = useState(false);
   const [teddyMoved, setTeddyMoved] = useState(false);
   const [selectedReason, setSelectedReason] = useState(null);
   const [hoveredReason, setHoveredReason] = useState(null);
 
-  const reasonMedia = [
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are really sexy' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are a big ashawo' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You scare me' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You are so nice' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are brilliant' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You talk too much' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You listen so well' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are fun to talk to' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You encourage me so much' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are so thoughtful' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are truly authentic' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are hilarious' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'Your energy is amazing' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You notice everything' },
-  ];
-
-  const reasons = [
-    { title: 'Sexy', emoji: '✨', idx: 0 },
-    { title: 'Ashawo', emoji: '😎', idx: 1 },
-    { title: 'Agbero', emoji: '🚗', idx: 2 },
-    { title: 'Nice', emoji: '💝', idx: 3 },
-    { title: 'Smart', emoji: '🧠', idx: 4 },
-    { title: 'Yapper', emoji: '💬', idx: 5 },
-    { title: 'Listener', emoji: '👂', idx: 6 },
-    { title: 'Fun to talk to', emoji: '😄', idx: 7 },
-    { title: 'Encouraging', emoji: '💪', idx: 8 },
-    { title: 'Thoughtful', emoji: '🤔', idx: 9 },
-    { title: "You're real and not fake", emoji: '✅', idx: 10 },
-    { title: 'Funny', emoji: '😂', idx: 11 },
-    { title: 'Good Energy', emoji: '⚡', idx: 12 },
-    { title: 'You notice the little things', emoji: '👀', idx: 13 },
-  ];
+  // User data with personalized messages
+  const users = {
+    'Nimattheashawo': {
+      password: 'IloveJesse',
+      letter: 'I know we haven\'t known each other for a very long time, but honestly, it feels like I\'ve known you much longer. Some people just have a way of making time feel different, and you\'re one of them. From the start, you\'ve been so nice and easy to talk to, and that\'s something I really appreciate about you.\n\nYou have this calm, kind energy that makes people feel comfortable, and I can say you\'ve definitely made me feel that way. I don\'t open up or feel relaxed around everyone, so the fact that I can around you means a lot. Not everyone can do that, and I hope you know how special that is.\n\nI just wanted to let you know that your kindness and the way you treat people doesn\'t go unnoticed. You make things a little brighter just by being you. I\'m really glad I got the chance to know you, even if it hasn\'t been that long yet.',
+      teddyMessages: [
+        "Your laugh is contagious.",
+        "You make people feel included.",
+        "You're easy to talk to.",
+        "Your presence brightens my day.",
+        "You have the biggest heart.",
+        "You inspire me to be better.",
+        "Your kindness is unmatched.",
+        "You light up every room.",
+      ],
+      reasons: [
+        { title: 'Sexy', emoji: '✨', idx: 0 },
+        { title: 'Ashawo', emoji: '😎', idx: 1 },
+        { title: 'Agbero', emoji: '🚗', idx: 2 },
+        { title: 'Nice', emoji: '💝', idx: 3 },
+        { title: 'Smart', emoji: '🧠', idx: 4 },
+        { title: 'Yapper', emoji: '💬', idx: 5 },
+        { title: 'Listener', emoji: '👂', idx: 6 },
+        { title: 'Fun to talk to', emoji: '😄', idx: 7 },
+        { title: 'Encouraging', emoji: '💪', idx: 8 },
+        { title: 'Thoughtful', emoji: '🤔', idx: 9 },
+        { title: "You're real and not fake", emoji: '✅', idx: 10 },
+        { title: 'Funny', emoji: '😂', idx: 11 },
+        { title: 'Good Energy', emoji: '⚡', idx: 12 },
+        { title: 'You notice the little things', emoji: '👀', idx: 13 },
+      ],
+      reasonLabels: [
+        'You are really sexy!',
+        'You are so cool!',
+        'You are adventurous!',
+        'You are so nice!',
+        'You are brilliant!',
+        'You talk so much!',
+        'You listen so well!',
+        'You are fun to be with!',
+        'You encourage me so much!',
+        'You are so thoughtful!',
+        'You are truly authentic!',
+        'You are hilarious!',
+        'Your energy is amazing!',
+        'You notice everything!'
+      ]
+    },
+    'dimplesnova': {
+      password: 'Tolu',
+      letter: 'I know we\'ve only known each other for a couple of days, but honestly it\'s been so much fun getting to know you! You\'ve been really fun to talk to, and I have to say you\'re pretty interesting and funny too.\n\nWhat really caught me was how similar our music taste is. It\'s funny how we ended up talking for the entire day the other day, time just flew by! That\'s when I realized how easy it is to just vibe with you.\n\nI\'m really looking forward to getting to know you more. You bring such good energy, and I appreciate how genuine and fun you are.',
+      teddyMessages: [
+        "You're nice.",
+        "You're probably more extroverted than I am.",
+        "You are easy to talk to.",
+        "You have a nice smile.",
+        "Good music taste.",
+        "It's been really fun getting to know you.",
+        "You're very open minded.",
+        "Questionable favourite Nigerian artist.",
+      ],
+      reasons: [
+        { title: 'Bright Smile', emoji: '✨', idx: 0 },
+        { title: 'Friendly', emoji: '😎', idx: 1 },
+        { title: 'Extroverted', emoji: '🚗', idx: 2 },
+        { title: 'Nice', emoji: '💝', idx: 3 },
+        { title: 'Smart', emoji: '🧠', idx: 4 },
+        { title: 'Good Conversations', emoji: '💬', idx: 5 },
+        { title: 'Listener', emoji: '👂', idx: 6 },
+        { title: 'Fun to talk to', emoji: '😄', idx: 7 },
+        { title: 'Ambitious', emoji: '💪', idx: 8 },
+        { title: 'Nice', emoji: '🤔', idx: 9 },
+        { title: "You're real and not fake", emoji: '✅', idx: 10 },
+        { title: 'Funny', emoji: '😂', idx: 11 },
+        { title: 'Good Energy', emoji: '⚡', idx: 12 },
+        { title: 'Height', emoji: '👀', idx: 13 },
+      ],
+      reasonLabels: [
+        'Your smile is beautiful!',
+        'You\'re so friendly!',
+        'Good energy',
+        'You\'re so nice!',
+        'You\'re definitely smart cause medcine, sheesh',
+        'Great conversations with you!',
+        'You\'re a good listener',
+        'You\'re fun to talk to!',
+        'Your ambition is inspiring!',
+        'You\'re such a nice person!',
+        'You\'re genuinely authentic!',
+        'You\'re funny!',
+        'Your energy is amazing!',
+        'I really wish I was 6"5 like you!'
+      ]
+    }
+  };
 
   const handleLoginClick = () => {
-    if (username === 'Nimattheashawo' && password === 'IloveJesse') {
+    if (users[username] && users[username].password === password) {
       setIsLoggedIn(true);
+      setCurrentUser(username);
       setLoginError('');
       setUsername('');
       setPassword('');
@@ -219,7 +283,7 @@ export default function App() {
               <h1 className="text-5xl sm:text-7xl font-black bg-gradient-to-r from-rose-600 via-pink-500 to-red-500 bg-clip-text text-transparent mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
                 Happy Valentine's Day
               </h1>
-              <p className="text-3xl sm:text-4xl text-gray-700 font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>Nimat</p>
+              <p className="text-3xl sm:text-4xl text-gray-700 font-bold mb-2" style={{ fontFamily: 'Poppins, sans-serif' }}>{currentUser === 'Nimattheashawo' ? 'Nimat' : currentUser === 'dimplesnova' ? 'Tolu' : currentUser}</p>
               <p className="text-lg sm:text-2xl text-rose-500 font-bold animate-pulse" style={{ fontFamily: 'Poppins, sans-serif' }}>Something special for you 💕</p>
             </div>
           )}
@@ -260,16 +324,8 @@ export default function App() {
                       <X size={28} />
                     </button>
                     <h3 className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 mb-6" style={{ fontFamily: 'Poppins, sans-serif' }}>For You</h3>
-                    <div className="text-gray-700 leading-relaxed space-y-4 font-semibold text-sm sm:text-lg" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                      <p>
-                       I know we haven't known each other for a very long time, but honestly, it feels like I've known you much longer. Some people just have a way of making time feel different, and you're one of them. From the start, you've been so nice and easy to talk to, and that's something I really appreciate about you.
-                      </p>
-                      <p>
-                       You have this calm, kind energy that makes people feel comfortable, and I can say you've definitely made me feel that way. I don't open up or feel relaxed around everyone, so the fact that I can around you means a lot. Not everyone can do that, and I hope you know how special that is.
-                      </p>
-                      <p>
-                        I just wanted to let you know that your kindness and the way you treat people doesn't go unnoticed. You make things a little brighter just by being you. I'm really glad I got the chance to know you, even if it hasn't been that long yet.
-                      </p>
+                    <div className="text-gray-700 leading-relaxed space-y-4 font-semibold text-sm sm:text-lg whitespace-pre-wrap" style={{ fontFamily: 'Poppins, sans-serif' }}>
+                      {users[currentUser].letter}
                     </div>
                   </div>
                 </div>
@@ -303,16 +359,7 @@ export default function App() {
                   {teddyMoved && (
                     <div className="bg-gradient-to-br from-rose-100 via-pink-100 to-red-100 rounded-2xl p-6 sm:p-8 animate-fade-in border-4 border-rose-200">
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {[
-                          "Your laugh is horrible.",
-                          "You make me talk too much",
-                          "You're easy to talk to",
-                          "Your presence brightens my day(somehow sha)",
-                          "You have a big P(personality lol)",
-                          "You found a way to make me comfortable around you",
-                          "You're nice",
-                          "You light up every room(I no know sha maybe)",
-                        ].map((message, idx) => (
+                        {users[currentUser].teddyMessages.map((message, idx) => (
                           <div
                             key={idx}
                             className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition transform hover:scale-105 hover:-rotate-3 duration-300 cursor-pointer border-3 border-rose-300 hover:border-rose-500 animate-fade-in"
@@ -355,7 +402,7 @@ export default function App() {
                 <div className="text-center mb-8">
                   <div className="text-6xl sm:text-8xl mb-6 animate-bounce">{reasons[selectedReason].emoji}</div>
                   <h3 className="text-3xl sm:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600 mb-4" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                    {selectedReason + 1}. {reasons[selectedReason].title}
+                    {selectedReason + 1}. {users[currentUser].reasons[selectedReason].title}
                   </h3>
                   <div className="h-2 w-32 bg-gradient-to-r from-rose-400 via-pink-400 to-red-400 mx-auto rounded-full animate-pulse"></div>
                 </div>
@@ -367,7 +414,7 @@ export default function App() {
                 {/* Label underneath */}
                 <div className="bg-gradient-to-r from-rose-100 via-pink-100 to-red-100 rounded-2xl p-6 text-center transform hover:scale-110 transition duration-300 mb-6 border-3 border-rose-300 hover:shadow-xl hover:-rotate-2">
                   <p className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-rose-600 to-pink-600" style={{ fontFamily: 'Poppins, sans-serif' }}>
-                    {reasonMedia[selectedReason].label}
+                    {users[currentUser].reasonLabels[selectedReason]}
                   </p>
                 </div>
 
@@ -403,7 +450,7 @@ export default function App() {
 
           {/* Reasons Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {reasons.map((reason, idx) => (
+            {users[currentUser].reasons.map((reason, idx) => (
               <button
                 key={idx}
                 onClick={() => setSelectedReason(idx)}
