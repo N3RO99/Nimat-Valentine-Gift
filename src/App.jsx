@@ -7,6 +7,7 @@ export default function App() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
+  const [loggedInUser, setLoggedInUser] = useState('');
   const [currentUser, setCurrentUser] = useState(null);
   const [currentPage, setCurrentPage] = useState('home');
   const [showLetter, setShowLetter] = useState(false);
@@ -63,8 +64,8 @@ export default function App() {
       ]
     },
     'dimplesnova': {
-      password: 'password123',
-      letter: 'I know we\'ve only known each other for a couple of days, but honestly it\'s been so much fun getting to know you! You\'ve been really fun to talk to, and I have to say you\'re pretty interesting and funny too.\n\nWhat really caught me was how similar our music taste is. It\'s funny how we ended up talking for the entire day the other day, time just flew by! That\'s when I realized how easy it is to just vibe with you.\n\nI\'m really looking forward to getting to know you more. You bring such good energy, and I appreciate how genuine and fun you are.',
+      password: 'Tolu',
+      letter: 'I know we\'ve only known each other for a couple of days, but honestly it\'s been so much fun getting to know you! You\'ve been really fun to talk to, and I have to say you\'re pretty interesting and funny too.\n\nWhat really caught me was how similar our music taste is. It\'s funny how we ended up talking for the entire day the other day – time just flew by! That\'s when I realized how easy it is to just vibe with you.\n\nI\'m really looking forward to getting to know you more. You bring such good energy, and I appreciate how genuine and fun you are.',
       teddyMessages: [
         "You're nice.",
         "You're probably more extroverted than I am.",
@@ -72,8 +73,8 @@ export default function App() {
         "You have a nice smile.",
         "Good music taste.",
         "It's been really fun getting to know you.",
-        "You're very open minded.",
-        "Questionable favourite Nigerian artist.",
+        "Your laugh is infectious.",
+        "You make me smile.",
       ],
       reasons: [
         { title: 'Bright Smile', emoji: '✨', idx: 0 },
@@ -94,23 +95,29 @@ export default function App() {
       reasonLabels: [
         'Your smile is beautiful!',
         'You\'re so friendly!',
-        'Good energy',
+        'Your energy is contagious!',
         'You\'re so nice!',
-        'You\'re definitely smart cause medcine, sheesh',
+        'You\'re brilliant!',
         'Great conversations with you!',
-        'You\'re a good listener',
-        'You\'re fun to talk to!',
+        'You listen so well!',
+        'You\'re fun to be with!',
         'Your ambition is inspiring!',
         'You\'re such a nice person!',
         'You\'re genuinely authentic!',
-        'You\'re funny!',
+        'You\'re hilarious!',
         'Your energy is amazing!',
-        'I really wish I was 6"5 like you!'
+        'Your height is perfect!'
       ]
     }
   };
 
   const handleLoginClick = () => {
+    console.log('Username entered:', username);
+    console.log('Password entered:', password);
+    console.log('User exists:', users[username]);
+    console.log('Password matches:', users[username]?.password === password);
+    console.log('All users:', users);
+    
     if (users[username] && users[username].password === password) {
       setIsLoggedIn(true);
       setCurrentUser(username);
