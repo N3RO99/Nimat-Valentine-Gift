@@ -15,13 +15,13 @@ export default function App() {
 
   const reasonMedia = [
     { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are really sexy' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are so cool' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are adventurous' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You are a big ashawo' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You scare me' },
     { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You are so nice' },
     { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are brilliant' },
     { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You talk too much' },
     { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1brgPERO12bmZ3cXPZYqD4JvRDrySWg3P', label: 'You listen so well' },
-    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are fun to be with' },
+    { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1oq5QxRJHhUT6-rFbSU8xi2LOAt_s4e1-', label: 'You are fun to talk to' },
     { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1ZTsOMx-iJ7SC07L84z8apN6vVrRAml4t', label: 'You encourage me so much' },
     { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1lltvaK8y5c8redJ0WedEjySDq2G8P49s', label: 'You are so thoughtful' },
     { type: 'image', src: 'https://drive.google.com/uc?export=view&id=1YiOsPn8BDZaQnD9MD5Aq15VTCBZwRbPs', label: 'You are truly authentic' },
