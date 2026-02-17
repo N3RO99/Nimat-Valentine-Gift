@@ -7,7 +7,6 @@ export default function App() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState('');
-  const [loggedInUser, setLoggedInUser] = useState('');
   const [currentUser, setCurrentUser] = useState(null);
   const [currentPage, setCurrentPage] = useState('home');
   const [showLetter, setShowLetter] = useState(false);
